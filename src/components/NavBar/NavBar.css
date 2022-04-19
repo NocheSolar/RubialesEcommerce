@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    margin: 0;
+    padding: 100px;
+    border: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(./../../imgs/navbar.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+.navbar a{
+    text-decoration: none;
+}
+.navbtn{
+    display: flex;
+    justify-content: space-between;   
+}
