@@ -6,7 +6,7 @@
 
 .navbar {
     margin: 0;
-    padding: 100px;
+
     border: 0;
     background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(./../../imgs/navbar.jpg);
     background-size: cover;
@@ -20,4 +20,11 @@
 .navbtn{
     display: flex;
     justify-content: space-between;   
+    padding: 50px;
+}
+
+.nombreMarca{
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
 }
