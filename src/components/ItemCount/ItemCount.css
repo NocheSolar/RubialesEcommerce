@@ -1,0 +1,29 @@
+.itemcountcontainer {
+    background-color: whitesmoke;
+    padding: 100px;
+}
+
+.itemcountcontainer div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.itemcountcontainer button {
+    width: 50%;
+    padding: 20px;
+    border-radius: 2px 2px 2px 2px;
+}
+
+.itemcountcontainer div button {
+    background-color: whitesmoke;
+    border: none;
+    font-size: xx-large;
+    cursor: pointer;
+}
+
+.itemcountcontainer div input {
+    padding: 5px;
+    text-align: center;
+}
+
