@@ -9,6 +9,7 @@ function App() {
     <div className="App">
       <NavBar/>
       <ItemListContaier greetings='Bienvenidos a nuestra tienda de informatica'/>
+      <ItemDetailContainer/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
