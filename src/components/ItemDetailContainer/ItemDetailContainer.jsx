@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import './ItemDetailContainer.css';
 
-function getProduct () {
+function getProduct ( id) {
   const myProducts = new Promise ((resolve, reject) =>{
     const productsList = [
       {
@@ -24,22 +25,26 @@ function getProduct () {
         image: 'https://http2.mlstatic.com/D_NQ_NP_2X_775551-MLA40154584077_122019-F.webp'
       },
     ];
+    const item = productsList.filter(item => item.id == parseInt(id));
     setTimeout(()=> {
-      resolve (productsList);
+      resolve (item [0]);
     }, 3000);
   });
   return myProducts;
 }
+
 function ItemDetailContainer(){
   const [productList, setProduct] = useState ([]);
+  const {id} = useParams ();
+
   useEffect(()=>{
-    getProduct().then (res =>{
+    getProduct(id).then (res =>{
       setProduct (res);
     })
     getProduct().catch ( err =>{
       console.log (err, "error");
     })
-  }, []);
+  }, [id]);
 
   return (
     <div>

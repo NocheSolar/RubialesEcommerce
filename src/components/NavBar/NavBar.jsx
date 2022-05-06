@@ -10,12 +10,10 @@ function NavBar(props) {
                 <CartWidget/>
             </div>
             <ul className='navbtn'>
-                <a href=""> <button>Inicio</button></a>
-                <a href=""><button>Auriculares</button></a>
-                <a href=""><button>Teclados</button></a>
-                <a href=""><button>Mouses</button></a>
-                <a href=""><button>Combos</button></a>
-                <a href=""><button>Contacto</button></a>
+                <li><NavLink to='/'>Home</NavLink></li>
+                <li><NavLink to='/category/auriculares'>Auriculares</NavLink></li>
+                <li><NavLink to='/category/teclados'>Teclados</NavLink></li>
+                <li><NavLink to='/category/mouses'>Mouses</NavLink></li>
             </ul>
         </div>
     );

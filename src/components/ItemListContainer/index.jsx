@@ -1,22 +1,60 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import './itemlistcontainer.css';
 import ItemList from '../ItemList/ItemList';
-import Products from "../helper/Products";
+import Products from "../../helper/Products";
 
-const container = ({greetings}) => {
+function getProduct ( category) {
+  const myProducts = new Promise ((resolve, reject) =>{
+    const productsList = [
+      {
+        id: 0,
+        tittle: 'Mouse logitech g203',
+        category: 'Mouses',
+        price: '$3500',
+        image: 'https://http2.mlstatic.com/D_NQ_NP_2X_775601-MLA45385615343_032021-F.webp'
+      },
+      {
+        id: 1,
+        tittle: 'Teclado razer blackwidow',
+        category: 'Teclados',
+        price: '$1700',
+        image: 'https://http2.mlstatic.com/D_NQ_NP_2X_875425-MLA49294676896_032022-F.webp'
+      },
+      {
+        id: 2,
+        tittle: 'Auriculares hyperx cloud stinger',
+        category: 'Auriculares',
+        price: '$8000',
+        image: 'https://http2.mlstatic.com/D_NQ_NP_2X_775551-MLA40154584077_122019-F.webp'
+      },
+    ];
+    const productsFilter = productsFilter.filter (prod => prod.category == category)
+    setTimeout(()=> {
+      resolve (productsFilter);
+    }, 3000);
+  });
+  return myProducts;
+}
+function ItemListContainer (greetings){
   const [products, setProducts] = useState([]);
-  useEffect(() => {
-    Products.then((response) => setProducts(response))
-  }, []);
+  const { categoryId } = useParams();
 
-  return (
-    <>
-      <div className='containerList'>{greetings}</div>
-      <ItemCount stock= {20} initial= {0}/>
-      <ItemList products={products} />
-    </>
-  )
+  useEffect(() => {
+    getProduct(categoryId).then(res => {
+        setProducts(res);
+      })
+      getProduct.catch(err => {
+        console.log(err, "error");
+      });
+  }, [categoryId]);
+
+
+ retturn (
+  <div>
+    <ItemList products={products} />
+  </div>
+ )
 }
 
-export default container;
+export default ItemListContainer;
