@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 import './itemlistcontainer.css';
 import ItemList from '../ItemList/ItemList';
 
-function getProduct ( category) {
-  const myProducts = new Promise ((resolve, reject) =>{
+function getProduct(category) {
+  const myProducts = new Promise((resolve, reject) => {
     const productsList = [
       {
         id: 0,
@@ -29,32 +29,32 @@ function getProduct ( category) {
         image: 'https://http2.mlstatic.com/D_NQ_NP_2X_775551-MLA40154584077_122019-F.webp'
       },
     ];
-    const productsFilter = productsFilter.filter (prod => prod.category == category)
-    setTimeout(()=> {
-      resolve (productsFilter);
+    const productsFilter = category ? productsList.filter(prod => prod.category === category) : productsList;
+    setTimeout(() => {
+      resolve(productsFilter);
     }, 3000);
   });
   return myProducts;
 }
-function ItemListContainer (){
+function ItemListContainer() {
   const [products, setProducts] = useState([]);
   const { categoryId } = useParams();
 
   useEffect(() => {
     getProduct(categoryId).then(res => {
-        setProducts(res);
-      })
-      getProduct.catch(err => {
-        console.log(err, "error");
-      });
+      setProducts(res);
+    })
+    .catch(err => {
+      console.log(err, "error");
+    });
   }, [categoryId]);
 
 
- return (
-  <div>
-    <ItemList products={products}/>
-  </div>
- )
+  return (
+    <div>
+      <ItemList products={products} />
+    </div>
+  )
 }
 
 export default ItemListContainer;

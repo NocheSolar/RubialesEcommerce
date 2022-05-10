@@ -3,7 +3,7 @@ import './NavBar.css';
 import { Link, NavLink } from 'react-router-dom';
 import CartWidget from '../CartWidget';
 
-function NavBar(props) {
+function NavBar() {
     return (
         <div className='navbar'>
             <Link to='/'>
@@ -14,9 +14,9 @@ function NavBar(props) {
             </Link>
             <ul className='navbtn'>
                 <li><NavLink to='/'>Home</NavLink></li>
-                <li><NavLink to='/category/auriculares'>Auriculares</NavLink></li>
-                <li><NavLink to='/category/teclados'>Teclados</NavLink></li>
-                <li><NavLink to='/category/mouses'>Mouses</NavLink></li>
+                <li><NavLink to='/category/Auriculares'>Auriculares</NavLink></li>
+                <li><NavLink to='/category/Teclados'>Teclados</NavLink></li>
+                <li><NavLink to='/category/Mouses'>Mouses</NavLink></li>
             </ul>
         </div>
     );

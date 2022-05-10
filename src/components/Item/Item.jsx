@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Item({item}) {
   return (
-    <div className='cardProducto'>
+    <div className='cardProduct'>
         <div className='header'>{ item?.tittle }</div>
         <div className='container'>
             <div className='imgProducto'>
