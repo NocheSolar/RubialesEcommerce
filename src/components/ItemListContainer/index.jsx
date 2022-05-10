@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
+import { useParams } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 import './itemlistcontainer.css';
 import ItemList from '../ItemList/ItemList';
-import Products from "../../helper/Products";
 
 function getProduct ( category) {
   const myProducts = new Promise ((resolve, reject) =>{
@@ -36,7 +36,7 @@ function getProduct ( category) {
   });
   return myProducts;
 }
-function ItemListContainer (greetings){
+function ItemListContainer (){
   const [products, setProducts] = useState([]);
   const { categoryId } = useParams();
 
@@ -50,9 +50,9 @@ function ItemListContainer (greetings){
   }, [categoryId]);
 
 
- retturn (
+ return (
   <div>
-    <ItemList products={products} />
+    <ItemList products={products}/>
   </div>
  )
 }

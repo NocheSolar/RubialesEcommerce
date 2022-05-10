@@ -1,6 +1,6 @@
 import React from 'react';
-import Item from '../Item/Item';
 import './ItemList.css';
+import Item from '../Item/Item';
 
 function ItemList({ items }) {
     return (
@@ -12,3 +12,5 @@ function ItemList({ items }) {
 }
 
 export default ItemList
+
+
