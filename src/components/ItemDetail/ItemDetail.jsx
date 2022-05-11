@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import ItemCount from '../ItemCount/ItemCount';
+import Item from '../Item/Item';
 
 function ItemDetail ( {productsList}){
     const [productsAvailable, setproductsAvailable] = useState (null);
@@ -12,7 +13,7 @@ function ItemDetail ( {productsList}){
     return (
         <div>
             <img src="{productsList.image}" alt="" />
-            <h2> {productsList.tittle}</h2>
+            <h2> {productsList.name}</h2>
             <h4>{productsList.price}</h4>
             <div className='itemCounterContainer'>
                 <button> <Link to='/cart'/>Finalizar Compra ({productsAvailable})</button>
