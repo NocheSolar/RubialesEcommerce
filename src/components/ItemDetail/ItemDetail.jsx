@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { isCompositeComponent } from 'react-dom/test-utils';
 import { Link } from 'react-router-dom';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import ItemCount from '../ItemCount/ItemCount';
@@ -12,7 +11,7 @@ function ItemDetail ( {productsList}){
 
     return (
         <div>
-            <img src="{products.image}" alt="" />
+            <img src="{productsList.image}" alt="" />
             <h2> {productsList.tittle}</h2>
             <h4>{productsList.price}</h4>
             <div className='itemCounterContainer'>
