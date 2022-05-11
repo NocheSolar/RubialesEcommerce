@@ -1,17 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Item({item}) {
+function Item({products}) {
   return (
     <div className='cardProduct'>
-        <div className='header'>{ item?.tittle }</div>
+        <div className='header'>{ products.tittle }</div>
         <div className='container'>
             <div className='imgProducto'>
-                <img className='product-img' src={ item?.image } alt="Imagen del producto" />
+                <img className='product-img' src={ products.image } alt="Imagen del producto" />
             </div>
-            <Link to={'/item/' + item?.id}><button>Detalle del producto</button></Link>
+            <Link to={'/item/' + products.id}><button>Detalle del producto</button></Link>
         </div>
-        <div className='precioProducto'>{ item?.price }</div>
+        <div className='precioProducto'>{ products.price }</div>
     </div>
   )
 }
