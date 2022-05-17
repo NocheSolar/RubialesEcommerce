@@ -1,15 +1,17 @@
 import React from 'react';
 import './NavBar.css';
 import { Link, NavLink } from 'react-router-dom';
+import { useCartContext } from "../../Context/CartContextProvider";
 import CartWidget from '../CartWidget';
 
 function NavBar() {
+    const { totalCount } = useCartContext();
     return (
         <div className='navbar'>
             <Link to='/'>
             <div className='nombreLogo'>
                 <h1 className='nombreMarca'>Nebula Tecnologia</h1>
-                <CartWidget/>
+                {totalCount() > 0 && <CartWidget />}
             </div>
             </Link>
             <ul className='navbtn'>
