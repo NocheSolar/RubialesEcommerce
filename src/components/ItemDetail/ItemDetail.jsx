@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import ItemCount from '../ItemCount/ItemCount';
 import Cart from '../Cart/Cart';
+import { useCartContext } from "../Context/CartContextProvider";
 
 const ItemDetail = ({ product }) => {
     const { tittle, price, image, stock, id } = product;
@@ -12,7 +13,7 @@ const ItemDetail = ({ product }) => {
     const handleOnAdd = (count) => {
         if (count + unitsPerProduct(id) > stock) {
           const availableToAdd = stock - unitsPerProduct(id);
-          return alert(`Solamente podes agregar ${availableToAdd} productos`);
+          return alert(`Podes agregar ${availableToAdd} productos`);
         }
         setCountToAdd(count);
         addToCart(product, count);

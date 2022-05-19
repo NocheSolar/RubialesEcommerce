@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useCartContext } from "../../context/CartContextProvider";
+import { useCartContext } from "../Context/CartContextProvider";
 
 const CartItem = ({ item }) => {
   const { deleteById, removeOneUnit } = useCartContext();
