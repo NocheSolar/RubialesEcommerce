@@ -2,38 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import './ItemDetailContainer.css';
+import {doc, getDoc, getFirestore} from 'firebase/firestore';
 
 function getProduct (id) {
-  const myProducts = new Promise ((resolve, reject) =>{
-    const productsList = [
-      {
-        id: 0,
-        tittle: 'Mouse logitech g203',
-        price: '$3500',
-        image: 'https://http2.mlstatic.com/D_NQ_NP_2X_775601-MLA45385615343_032021-F.webp',
-        stock : '25',
-      },
-      {
-        id: 1,
-        tittle: 'Teclado razer blackwidow',
-        price: '$1700',
-        image: 'https://http2.mlstatic.com/D_NQ_NP_2X_875425-MLA49294676896_032022-F.webp',
-        stock : '20',
-      },
-      {
-        id: 2,
-        tittle: 'Auriculares hyperx cloud stinger',
-        price: '$8000',
-        image: 'https://http2.mlstatic.com/D_NQ_NP_2X_775551-MLA40154584077_122019-F.webp',
-        stock : '30',
-      },
-    ];
-    const item = productsList.filter(item => item.id == parseInt(id));
-    setTimeout(()=> {
-      resolve (item [0]);
-    }, 3000);
-  });
-  return myProducts;
+  const db = getFirestore();
+  
+  const itemFind = doc (db, 'items', id);
+  
+  return getDoc (itemFind);
 }
 
 function ItemDetailContainer(){
@@ -42,7 +18,7 @@ function ItemDetailContainer(){
 
   useEffect(()=>{
     getProduct(id).then (res =>{
-      setProduct (res);
+      setProduct ({...res.data(), id: res.id});
     })
     .catch ( err =>{
       console.log (err, "error");
