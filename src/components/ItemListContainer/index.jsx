@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './itemlistcontainer.css';
 import ItemList from '../ItemList/ItemList';
-import { collection, getDocs, getFirestore, query, where} from 'firebse/firestore';
+import { collection, getDocs, getFirestore, query, where} from 'firebase/firestore';
+import db from '../../Services/Firebase';
+
 
 function getProduct(category) {
-  const db = getFirestore();
 
   const itemCollection = collection (db, 'items');
 

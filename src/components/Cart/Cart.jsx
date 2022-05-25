@@ -1,5 +1,6 @@
 import { useCartContext } from "../Context/CartContextProvider";
 import CartItem from "../CartItem/CartItem";
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const { cartList, emptyCart, totalPrice } = useCartContext();
@@ -17,6 +18,10 @@ const Cart = () => {
       ) : (
         <h1>No hay items en el carrito</h1>
       )}
+
+      <Link to='/checkout'>
+        <button className="btn btn-info">Finalizar Compra</button>
+      </Link>
     </div>
   );
 };

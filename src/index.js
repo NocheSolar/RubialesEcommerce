@@ -5,18 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import CartContextProvider  from './components/Context/CartContextProvider';
-import { initializeApp } from "firebase/app";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBfxD5EIowTAAjp_Gh69sMPQ7-CWbmgw_4",
-  authDomain: "rubialesecommerce.firebaseapp.com",
-  projectId: "rubialesecommerce",
-  storageBucket: "rubialesecommerce.appspot.com",
-  messagingSenderId: "394349714847",
-  appId: "1:394349714847:web:af0adf2aaa3355931e31aa"
-};
-
-initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
