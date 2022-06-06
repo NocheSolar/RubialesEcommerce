@@ -2,7 +2,7 @@ import React from 'react';
 import './NavBar.css';
 import { Link, NavLink } from 'react-router-dom';
 import { useCartContext } from "../Context/CartContextProvider";
-import CartWidget from '../CartWidget';
+import CartWidget from '../CartWidget/index';
 
 function NavBar() {
     const { totalCount } = useCartContext();

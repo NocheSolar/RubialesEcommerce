@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDVrCbj7Z3_wS5Zw7mduzZ77K18GAlYPDY",
-    authDomain: "ecommerce-73786.firebaseapp.com",
-    projectId: "ecommerce-73786",
-    storageBucket: "ecommerce-73786.appspot.com",
-    messagingSenderId: "205929765003",
-    appId: "1:205929765003:web:7a738d029cad7fb8dadc8e"
+    apiKey: "AIzaSyBfxD5EIowTAAjp_Gh69sMPQ7-CWbmgw_4",
+    authDomain: "rubialesecommerce.firebaseapp.com",
+    projectId: "rubialesecommerce",
+    storageBucket: "rubialesecommerce.appspot.com",
+    messagingSenderId: "394349714847",
+    appId: "1:394349714847:web:af0adf2aaa3355931e31aa"
 };
 
 const app = initializeApp(firebaseConfig);
