@@ -17,7 +17,7 @@ function App() {
         <Route path='/category/:categoryId' element= {<ItemListContainer/>}/>
         <Route path='/item/:id' element= {<ItemDetailContainer/>}/>
         <Route path='/Cart' element={<Cart/>}/>
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/Checkout" element={<Checkout />} />
       </Routes>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
