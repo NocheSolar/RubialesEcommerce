@@ -5,8 +5,8 @@ import ItemCount from '../ItemCount/ItemCount';
 import Cart from '../Cart/Cart';
 import { useCartContext } from "../Context/CartContextProvider";
 
-const ItemDetail = ({ product }) => {
-    const { tittle, price, image, stock, id } = product;
+const ItemDetail = ({ item }) => {
+    const { tittle, price, image, stock, id } = item;
     const [countToAdd, setCountToAdd] = useState(0);
     const { addToCart, unitsPerProduct } = useCartContext();
 
@@ -16,7 +16,7 @@ const ItemDetail = ({ product }) => {
           return alert(`Podes agregar ${availableToAdd} productos`);
         }
         setCountToAdd(count);
-        addToCart(product, count);
+        addToCart(item, count);
       };
     
     return (
