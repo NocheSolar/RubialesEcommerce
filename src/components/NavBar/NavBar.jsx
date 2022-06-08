@@ -11,7 +11,7 @@ function NavBar() {
             <Link to='/'>
             <div className='nombreLogo'>
                 <h1 className='nombreMarca'>Nebula Tecnologia</h1>
-                {totalCount() > 0 && <CartWidget />}
+                <CartWidget />
             </div>
             </Link>
             <ul className='navbtn'>

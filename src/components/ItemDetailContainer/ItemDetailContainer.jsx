@@ -5,29 +5,32 @@ import './ItemDetailContainer.css';
 import {doc, getDoc} from 'firebase/firestore';
 import db from '../../Services/Firebase';
 
-function getProduct (id) {
-  
-  const itemFind = doc (db, 'items', id);
-  
-  return getDoc (itemFind);
-}
+const ItemDetailContainer = () => {
 
-function ItemDetailContainer(){
-  const [productList, setProduct] = useState ([]);
-  const {id} = useParams ();
+  const { id } = useParams();
+  const [selectedItem, setSelectedItem] = useState()   //State donde grabo el item  segun el id
 
-  useEffect(()=>{
-    getProduct(id).then (res =>{
-      setProduct ({...res.data(), id: res.id});
-    })
-    .catch ( err =>{
-      console.log (err, "error");
-    })
-  }, [id]);
+  const getSelected = async(idItem) =>{
+      try {
+          const document = doc(db, "Items", idItem)
+          const response = await getDoc(document)
+          const result = {id: response.id, ...response.data()}
+          setSelectedItem(result)
+        
+
+      } catch (error) {
+          console.log(error)
+      }
+  }
+
+
+  useEffect(() => {
+      getSelected(id)
+  }, [id])
 
   return (
     <div>
-      <ItemDetail item ={productList} />
+    <ItemDetail item={selectedItem} />
     </div>
   )
 
