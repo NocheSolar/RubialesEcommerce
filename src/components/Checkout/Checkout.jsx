@@ -7,7 +7,7 @@ import { CartContext } from '../Context/CartContextProvider';
 
 const Checkout = () => {
 
-    const {cart,getTotal,clear}= useContext(CartContext)
+    const {cartList,totalPrice,emptyCart}= useContext(CartContext)
 
     const [load, setLoad] = useState(false)
     const [orderID, setOrderID] = useState()
@@ -20,10 +20,10 @@ const Checkout = () => {
 
     const {Nombre, Email, Telefono} = buyer
 
-    const handleInputChange = (e) => {
+    const handleInputChange = (inf) => {
         setBuyer(({
             ...buyer,
-            [e.target.name]:e.target.value
+            [inf.target.name]:inf.target.value
         }))
     }
 
@@ -33,18 +33,18 @@ const Checkout = () => {
             const col = collection(db,"Orders")
             const order = await addDoc(col,data) 
             setOrderID(order.id)
-            clear()
+            emptyCart()
             setLoad(false)
         } catch (error) {
             console.log(error)
         }
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleSubmit = (event) => {
+        event.preventDefault()
         const dia = new Date()
-        const items = cart.map(e=> {return {id:e.id,title:e.name,price:e.price,amount:e.amount}})        
-        const total = getTotal()
+        const items = cartList.map(item=> {return {id:item.id,title:item.tittle,price:item.price,stock:item.stock}})        
+        const total = totalPrice()
         const data = {buyer,items,dia,total}
         console.log("data",data)  
         generateOrder(data)
@@ -56,10 +56,8 @@ const Checkout = () => {
     return (
         <>
             <h1>Finalizando Compra</h1>
-            <hr />
             
-            {load 
-                (!orderID&&<div>
+                <div>
                     <h4>Completar Datos:</h4>
                     <br />
                     <form onSubmit={handleSubmit}>
@@ -93,11 +91,10 @@ const Checkout = () => {
                         <input
                             type="submit"
                             value="Finalizar Compra"
-                            className="btn btn-success"
+                
                         />
                     </form>
-                </div>)
-            }
+                </div>
 
             <div>
             {

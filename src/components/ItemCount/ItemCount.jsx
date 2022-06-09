@@ -13,10 +13,10 @@ function ItemCount({initial, stock, onAdd }) {
             setCount(count - 1)
         }
     }
-    function onAdd (){
+   /* function onAdd (){
         alert(`Tus productos se agregaron correctamente (${count}) `);
         console.log (count);
-    }
+    }*/
     return (
         <div className='itemcountcontainer'>
             <div>

@@ -18,7 +18,7 @@ const ItemDetail = ({ item }) => {
         setCountToAdd(count);
         addToCart(item, count);
       };
-    
+
       return (
         <div>
             <img src={image} alt="producto" />
@@ -26,7 +26,11 @@ const ItemDetail = ({ item }) => {
             <h4>{price}</h4>
             <div className='itemCounterContainer'>
                 <ItemCount initial={1} stock={stock}  onAdd={handleOnAdd} />
-                {countToAdd>0&& <Link to="/Cart"><button>Ir a tu carrito de compras</button></Link>}
+                {countToAdd>0&&       
+                <Link to='/Cart'>
+                <button>Ir a mis compras</button>
+                </Link>}
+
             </div>
         </div>
     );

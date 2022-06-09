@@ -1,8 +1,9 @@
 import React from 'react';
 import './NavBar.css';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, } from 'react-router-dom';
 import { useCartContext } from "../Context/CartContextProvider";
 import CartWidget from '../CartWidget/index';
+import Cart from '../Cart/Cart'
 
 function NavBar() {
     const { totalCount } = useCartContext();
@@ -20,6 +21,7 @@ function NavBar() {
                 <li><NavLink to='/category/Teclados'>Teclados</NavLink></li>
                 <li><NavLink to='/category/Mouses'>Mouses</NavLink></li>
             </ul>
+            <Link to="/Cart" element={<Cart />} />
         </div>
     );
 }

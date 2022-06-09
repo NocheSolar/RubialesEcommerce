@@ -20,8 +20,8 @@ const Cart = () => {
         <h1>No hay items en el carrito</h1>
       )}
 
-      <Link to='/checkout'>
-        <button className="btn btn-info">Finalizar Compra</button>
+      <Link to='/Checkout'>
+        <button>Finalizar Compra</button>
       </Link>
     </div>
   );
