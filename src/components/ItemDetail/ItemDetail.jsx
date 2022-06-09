@@ -19,17 +19,14 @@ const ItemDetail = ({ item }) => {
         addToCart(item, count);
       };
     
-    return (
+      return (
         <div>
             <img src={image} alt="producto" />
             <h2> {tittle}</h2>
             <h4>{price}</h4>
             <div className='itemCounterContainer'>
-                {countToAdd === 0 ? (
-                    <ItemCount initial={0} stock={stock}  onAdd={handleOnAdd} />
-                ) : (
-                    <Cart />
-                )}
+                <ItemCount initial={1} stock={stock}  onAdd={handleOnAdd} />
+                {countToAdd>0&& <Link to="/Cart"><button>Ir a tu carrito de compras</button></Link>}
             </div>
         </div>
     );
