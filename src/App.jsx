@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer'
+import ItemListContainer from './components/ItemListContainer/index'
 import { Route, Routes } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Cart from './components/Cart/Cart';
